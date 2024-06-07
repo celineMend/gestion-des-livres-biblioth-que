@@ -52,8 +52,8 @@
                                 <td>{{ $livre->rayon->libelle }}</td>
                                 <td>{{ $livre->disponibilite ? 'Disponible' : 'Indisponible' }}</td>
                                 <td>
-                                    {{-- <a href="{{ route('livres.edit', $livre->id) }}" class="btn btn-warning btn-sm">Modifier</a>
-                                    <form action="{{ route('livres.destroy', $livre->id) }}" method="POST" style="display:inline-block;">
+                                    <a href="{{ route('livres.modifier', $livre->id) }}" class="btn btn-warning btn-sm">Modifier</a>
+                                    {{-- <form action="{{ route('livres.destroy', $livre->id) }}" method="POST" style="display:inline-block;">
                                         @csrf
                                         @method('DELETE')
                                         <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Êtes-vous sûr de vouloir supprimer ce livre ?')">Supprimer</button>
