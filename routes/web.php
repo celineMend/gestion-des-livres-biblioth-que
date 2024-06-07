@@ -1,6 +1,7 @@
 <?php
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LivreController;
+use App\Http\Controllers\CategorieController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -14,3 +15,14 @@ Route::get('/livres/{id}modifier', [LivreController::class, 'modifier'])->name('
 // Route pour traiter la modification
 Route::put('/livres/{id}sauvegarder', [LivreController::class, 'sauvegarder'])->name('livres.sauvegarder');
 Route::delete('/supprimer/{id}', [LivreController::class, 'supprimer'])->name('livres.supprimer');
+//Route pour les catégories
+Route::get('/categories', [CategorieController::class, 'index'])->name('categories.index');
+//route pour ajouter des catégories
+Route::get('/categories/partager', [CategorieController::class, 'partager'])->name('categories.partager');
+//route pour le traitement du formulaire d'ajout
+Route::post('/categories/sauvegarder', [CategorieController::class, 'sauvegarder'])->name('categories.sauvegarder');
+//route poour modifier des categories
+Route::get('/categories/{id}/modifier', [CategorieController::class, 'modifier'])->name('categories.modifier');
+Route::post('/categories/{id}', [CategorieController::class, 'sauvegarde_modification'])->name('categories.sauvegarde_modification');
+//Route pour la suppression des catégories
+Route::delete('/supprimer/{id}', [CategorieController::class, 'supprimer'])->name('categories.supprimer');
