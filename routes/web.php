@@ -13,3 +13,4 @@ Route::get('/livres/{id}modifier', [LivreController::class, 'modifier'])->name('
 
 // Route pour traiter la modification
 Route::put('/livres/{id}sauvegarder', [LivreController::class, 'sauvegarder'])->name('livres.sauvegarder');
+Route::delete('/supprimer/{id}', [LivreController::class, 'supprimer'])->name('livres.supprimer');
