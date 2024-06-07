@@ -10,7 +10,9 @@ Route::get('/livres/ajouter',[LivreController::class,'ajouter'])->name('livres.a
 Route::post('/livres/ajouter_traitement',[LivreController::class,'ajouter_traitement'])->name('livres.ajouter_traitement');
 // Route pour afficher le formulaire de modification
 Route::get('/livres/{id}modifier', [LivreController::class, 'modifier'])->name('livres.modifier');
-
 // Route pour traiter la modification
-Route::put('/livres/{id}sauvegarder', [LivreController::class, 'sauvegarder'])->name('livres.sauvegarder');
+Route::post('/livres/{id}sauvegarder', [LivreController::class, 'sauvegarder'])->name('livres.sauvegarder');
+//Route pour supprimer
 Route::delete('/supprimer/{id}', [LivreController::class, 'supprimer'])->name('livres.supprimer');
+//Route pour afficher les détail d'un livre
+Route::get('/livres/{id}', [LivreController::class, 'afficher'])->name('livres.detail');

@@ -80,5 +80,10 @@ class LivreController extends Controller
         $livre->delete();
         return redirect()->route('livres.index')->with('status','Livre supprimé avec succès');
     }
+    public function afficher($id)
+    {
+        $livre = Livre::findOrFail($id);
+        return view('livres.detail',compact('livre'));
+    }
 
 }

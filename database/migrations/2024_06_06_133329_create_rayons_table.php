@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('rayons', function (Blueprint $table) {
             $table->id();
             $table->string('libelle')->unique();
-            $table->string('partie');
+            $table->enum('partie', ['première moitié', 'seconde moitié', 'milieu'])->default('première moitié');
             $table->timestamps();
         });
     }
@@ -25,5 +25,6 @@ return new class extends Migration
     public function down(): void
     {
         Schema::dropIfExists('rayons');
+        $table->dropColumn('partie');
     }
 };

@@ -12,6 +12,7 @@ class rayon extends Model
         'libelle',
         'partie',
     ];
+    public const PARTIES = ['première moitié', 'seconde moitié', 'milieu'];
 
     public function livres()
     {
