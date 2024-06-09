@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('livres', function (Blueprint $table) {
             $table->id();
+            $table->string('image')->nullable();
             $table->string('titre');
             $table->date('date_de_publication');
             $table->integer('nombre_de_page');
@@ -32,5 +33,6 @@ return new class extends Migration
     public function down(): void
     {
         Schema::dropIfExists('livres');
+        $table->dropColumn('image');
     }
 };

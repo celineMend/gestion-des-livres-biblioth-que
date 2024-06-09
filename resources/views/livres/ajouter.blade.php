@@ -28,10 +28,10 @@
                 <label for="titre" class="form-label">Titre</label>
                 <input type="text" class="form-control" id="titre" name="titre" value="{{ old('titre') }}" required>
             </div>
-            {{-- <div class="form-group">
+            <div class="form-group">
                 <label for="image">Image</label>
                 <input type="text" name="image" id="image" class="form-control" required>
-            </div> --}}
+            </div>
             <div class="mb-3">
                 <label for="date_de_publication" class="form-label">Date de Publication</label>
                 <input type="date" class="form-control" id="date_de_publication" name="date_de_publication" value="{{ old('date_de_publication') ? \Carbon\Carbon::parse(old('date_de_publication'))->format('Y-m-d') : '' }}" required>

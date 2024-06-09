@@ -24,6 +24,8 @@ class CategorieController extends Controller
             $request->validate([
                 'libelle' => 'required|string|max:255',
                 'description' => 'nullable|string',
+                'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+
             ]);
 
             Categorie::create($request->all());
@@ -56,7 +58,7 @@ class CategorieController extends Controller
         {
             $categorie = Categorie::findOrFail($id);
             $categorie->delete();
-    
+
             return redirect()->route('categories.index')->with('success', 'Catégorie supprimée avec succès.');
         }
 }

@@ -8,11 +8,10 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 class livre extends Model
 {
     use HasFactory;
-    protected $fillable = [
-        'titre', 'date_de_publication', 'nombre_de_page','isbn', 'auteur', 'editeur', 'categorie_id', 'rayon_id', 'disponibilite',
-    ];
+    protected $fillable = ['titre', 'image', 'date_de_publication', 'nombre_de_page', 'isbn', 'auteur', 'editeur', 'categorie_id', 'rayon_id', 'disponibilite'];
+
     protected $dates = ['date_de_publication'];
-    
+
     public function categorie()
     {
         return $this->belongsTo(Categorie::class);

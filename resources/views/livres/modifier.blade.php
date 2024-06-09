@@ -23,12 +23,16 @@
         @endif
         <form action="{{ route('livres.sauvegarder', $livre->id) }}" method="POST" class="form_group">
             @csrf
-            @method('PUT')
+            @method('POST')
             <input type="hidden" name="id" style="display:none;" value="{{ $livre->id }}" required>
 
             <div class="mb-3">
                 <label for="titre" class="form-label">Titre</label>
                 <input type="text" class="form-control" id="titre" name="titre" value="{{ old('titre', $livre->titre) }}" required>
+            </div>
+            <div class="form-group">
+                <label for="image">Image</label>
+                <input type="text" name="image" id="image" class="form-control" required>
             </div>
             <div class="mb-3">
                 <label for="date_de_publication" class="form-label">Date de Publication</label>
