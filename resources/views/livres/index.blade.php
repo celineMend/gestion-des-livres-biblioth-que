@@ -76,7 +76,7 @@
 <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-inner">
         <div class="carousel-item active">
-            <img src="https://i.pinimg.com/564x/14/15/6f/14156f7c0c0496e6391fce86c146efac.jpg" class="d-block w-100 carousel-img" alt="Slide 1">
+            <img src="https://images.radio-canada.ca/q_auto,w_1200/v1/ici-premiere/16x9/pluson-livre-generique.jpg" class="d-block w-100 carousel-img" alt="Slide 1">
             <div class="carousel-caption d-none d-md-block">
                 <h5>Premier Slide</h5>
                 <p>Description du premier slide.</p>
@@ -176,25 +176,27 @@
                 </div>
             @endforeach
         </div>
-        <a href="/categories" class="btn" style="background-color: blueviolet; color: white; margin-top: 10px;">Gérer les catégories</a>
+        <a href="/categories" class="btn" style="background-color: rgb(43, 217, 226); color: white; margin-top: 10px;">Gérer les catégories</a>
     </section>
 </div>
 
 <!-- Section des rayons -->
-<section id="rayons" class="rayon">
+<section id="rayons" class="rayon mt-5">
     <h2 class="title" style="font-size: 22px; border-bottom: 2px solid blueviolet; padding-bottom: 5px;">Nos différents rayons</h2>
-    <div class="card-group">
+    <div class="row row-cols-1 row-cols-md-3 g-4">
         @foreach($rayons as $rayon)
-        <div class="card text-bg-dark">
-            <img src="{{ $rayon->image_url }}" class="card-img" alt="{{ $rayon->libelle }}">
-            <div class="card-img-overlay">
-                <h5 class="card-title">{{ $rayon->libelle }}</h5>
-                <p class="card-text">{{ $rayon->description }}</p>
+            <div class="col">
+                <div class="card text-bg-dark h-100">
+                    <img src="{{ $rayon->image_url }}https://i.pinimg.com/564x/97/43/d0/9743d0f7b26ae85d4d6c2bd39ae32a59.jpg" class="card-img" alt="{{ $rayon->libelle }}">
+                    <div class="card-img-overlay">
+                        <h5 class="card-title">{{ $rayon->libelle }}</h5>
+                        <p class="card-text">{{ $rayon->description }}</p>
+                    </div>
+                </div>
             </div>
-        </div>
         @endforeach
     </div>
-    <a href="/rayons" class="btn" style="background-color: blueviolet; color: white; margin-top: 10px;">Gérer les rayons</a>
+    <a href="/rayons.index" class="btn" style="background-color: blueviolet; color: white; margin-top: 10px;">Gérer les rayons</a>
 </section>
 
 <!-- Bootstrap JS -->
