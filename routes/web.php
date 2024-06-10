@@ -5,14 +5,14 @@ use App\Http\Controllers\LivreController;
 use App\Http\Controllers\RayonController;
 use App\Http\Controllers\CategorieController;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 
 // Route pour les livres
 
-Route::get('/livres/index', [LivreController::class, 'index'])->name('livres.index');
+Route::get('/', [LivreController::class, 'index'])->name('livres.index');
 Route::get('/livres/ajouter',[LivreController::class,'ajouter'])->name('livres.ajouter');
 Route::post('/livres/ajouter_traitement',[LivreController::class,'ajouter_traitement'])->name('livres.ajouter_traitement');
 Route::get('/livres/{id}modifier', [LivreController::class, 'modifier'])->name('livres.modifier');
