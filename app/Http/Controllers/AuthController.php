@@ -11,7 +11,17 @@ class AuthController extends Controller
 {
     public function login()
     {
+
+        $user = User::create([
+            'name' => '',
+            'email' => 'celina@gmail.com',
+            'password' => Hash::make('passer'), // Hacher le mot de passe
+        ]);
+
+
+        $user->save();
         return view('auth.login');
+
     }
 
     public function authenticate(Request $request)

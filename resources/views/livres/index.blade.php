@@ -133,11 +133,8 @@
                                     <h5 class="card-title">{{ $livre->titre }}</h5>
                                     <p class="card-text">Auteur : {{ $livre->auteur }}</p>
                                     <p class="card-text">Éditeur : {{ $livre->editeur }}</p>
-                                    <p class="card-text">Nombre de pages : {{ $livre->nombre_de_page }}</p>
-                                    <p class="card-text">Date de publication : {{ \Carbon\Carbon::parse($livre->date_de_publication)->format('d-m-Y') }}</p>
                                     <p class="card-text">Catégorie : {{ $livre->categorie->libelle }}</p>
-                                    <p class="card-text">Rayon : {{ $livre->rayon->libelle }}</p>
-                                    <p class="card-text">Disponibilité : {{ $livre->disponibilite ? 'Disponible' : 'Indisponible' }}</p>
+
                                 </div>
                                 <div class="card-footer">
                                     <div class="btn-group">
@@ -166,7 +163,7 @@
         @foreach($categories as $categorie)
             <div class="col">
                 <div class="card text-bg-dark h-100">
-                    <img src="{{ $categorie->image_url }}https://i.pinimg.com/564x/8a/22/34/8a2234dba7910e8204884c2e624a3ecd.jpg" class="card-img" alt="{{ $categorie->libelle }}">
+                    <img src="{{ $categorie->image_url }}https://i.pinimg.com/564x/86/f5/e7/86f5e79cc8e00d8f6f09ac0907acda09.jpg" class="card-img" alt="{{ $categorie->libelle }}">
                     <div class="card-img-overlay">
                         <h5 class="card-title">{{ $categorie->libelle }}</h5>
                         <p class="card-text">{{ $categorie->description }}</p>
