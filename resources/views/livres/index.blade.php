@@ -158,7 +158,7 @@
 
 <!-- Section des catégories -->
 <section class="categorie mt-5">
-    <h2 class="title" style="font-size: 22px; border-bottom: 2px solid rgb(43, 198, 226); padding-bottom: 5px;">Nos différentes catégories de propriétés</h2>
+    <h2 class="title" style="font-size: 22px; border-bottom: 2px solid rgb(43, 83, 226); padding-bottom: 5px;">Nos différentes catégories de propriétés</h2>
     <div class="row row-cols-1 row-cols-md-3 g-4">
         @foreach($categories as $categorie)
             <div class="col">
@@ -172,12 +172,12 @@
             </div>
         @endforeach
     </div>
-    <a href="/categories" class="btn" style="background-color: rgb(43, 189, 226); color: white; margin-top: 10px;">Gérer les catégories</a>
+    <a href="/categories" class="btn" style="background-color: rgb(43, 83, 226); color: white; margin-top: 10px;">Gérer les catégories</a>
 </section>
 
 <!-- Section des rayons -->
 <section id="rayons" class="rayon mt-5">
-    <h2 class="title" style="font-size: 22px; border-bottom: 2px solid blueviolet; padding-bottom: 5px;">Nos différents rayons</h2>
+    <h2 class="title" style="font-size: 22px; border-bottom: 2px solid rgb(43, 83, 226); padding-bottom: 5px;">Nos différents rayons</h2>
     <div class="row row-cols-1 row-cols-md-3 g-4">
         @foreach($rayons as $rayon)
             <div class="col">
@@ -191,7 +191,7 @@
             </div>
         @endforeach
     </div>
-    <a href="/rayons" class="btn" style="background-color: blueviolet; color: white; margin-top: 10px;">Gérer les rayons</a>
+    <a href="/rayons" class="btn" style="background-color: rgb(43, 83, 226); color: white; margin-top: 10px;">Gérer les rayons</a>
 </section>
 
 

@@ -31,7 +31,7 @@ Route::get('/categories/partager', [CategorieController::class, 'partager'])->na
 Route::post('/categories/sauvegarder', [CategorieController::class, 'sauvegarder'])->name('categories.sauvegarder');
 Route::get('/categories/{id}/modifier', [CategorieController::class, 'modifier'])->name('categories.modifier');
 Route::post('/categories/{id}', [CategorieController::class, 'sauvegarde_modification'])->name('categories.sauvegarde_modification');
-Route::delete('/supprimer/{id}', [CategorieController::class, 'supprimer'])->name('categories.supprimer');
+Route::delete('/categories/supprimer/{id}', [CategorieController::class, 'supprimer'])->name('categories.supprimer');
 
 
 
