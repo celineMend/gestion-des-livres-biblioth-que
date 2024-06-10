@@ -27,51 +27,43 @@
     <br><br>
     <main role="main" class="container">
         <div class="row">
-            <div class="col-md-8 blog-main">
-                <h3 class="pb-3 mb-4 font-italic border-bottom">
-                    {{ $livre->titre }}
-                </h3>
-                <div class="blog-post">
-                    <p class="blog-post-meta">Date de Publication: {{ $livre->date_de_publication instanceof \DateTime ? $livre->date_de_publication->format('d-m-Y') : $livre->date_de_publication }}</p>
-                    <p>Nombre de pages: {{ $livre->nombre_de_page }}</p>
-                    <p>ISBN: {{ $livre->isbn }}</p>
-                    <p>Auteur: {{ $livre->auteur }}</p>
-                    <p>Éditeur: {{ $livre->editeur }}</p>
-                    <p>Catégorie: {{ $livre->categorie->libelle }}</p>
-                    <div class="row g-0">
-                        <div class="col-md-6">
-                            <p><strong>Rayon :</strong> {{ $livre->rayon->libelle }}</p>
+            <div class="col-md-8 blog-main"><div class="container">
+                <section class="section">
+                    <h2 class="title" style="font-size: 22px; border-bottom: 2px solid blueviolet; padding-bottom: 5px;">Détails du Livre : {{ $livre->titre }}</h2>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <img src="{{ $livre->image }}" class="img-fluid rounded-start" alt="Image du livre">
                         </div>
-                        <div class="col-md-6">
-                            <p><strong>Partie :</strong> {{ $livre->rayon->partie }}</p>
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <h5 class="card-title">{{ $livre->titre }}</h5>
+                                <p class="card-text">Auteur: {{ $livre->auteur }}</p>
+                                <p class="card-text">Nombre de pages: {{ $livre->nombre_de_page }}</p>
+                                <p class="card-text">ISBN: {{ $livre->isbn }}</p>
+                                <p class="card-text">Catégorie: {{ $livre->categorie->libelle }}</p>
+                                <p class="card-text">Rayon: {{ $livre->rayon->libelle }}</p>
+                                <p class="card-text">Disponibilité: {{ $livre->disponibilite ? 'Disponible' : 'Indisponible' }}</p>
+                                <p class="card-text"><small class="text-muted">Date de publication: {{ $livre->date_de_publication instanceof \DateTime ? $livre->date_de_publication->format('d-m-Y') : $livre->date_de_publication }}</small></p>
+                                <div class="d-flex justify-content-between">
+                                    <a href="{{ route('livres.modifier', $livre->id) }}" class="btn btn-primary">Modifier</a>
+                                    <button class="btn btn-danger" onclick="confirmDelete({{ $livre->id }})">Supprimer</button>
+                                    <a href="{{ route('livres.index') }}" class="btn btn-danger">Retour à la liste des livres</a>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <p>Disponibilité: {{ $livre->disponibilite ? 'Disponible' : 'Indisponible' }}</p>
-                </div>
+                </section>
             </div>
-            <aside class="col-md-4 blog-sidebar">
-                <div class="p-3 mb-3 bg-light rounded">
-                    <h4 class="font-italic">À propos</h4>
-                    <p class="mb-0">Cette section contient les détails du livre.</p>
-                </div>
-            </aside>
-        </div>
-    </main>
 
-    <footer class="blog-footer">
-        <nav class="blog-pagination">
-            <a class="btn btn-outline-primary" href="{{ route('livres.index') }}">Retour à la liste des livres</a>
-        </nav>
-    </footer>
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+            <script>
+                function confirmDelete(id) {
+                    const confirmed = confirm(`Êtes-vous sûr de vouloir supprimer le livre avec l'ID ${id} ?`);
+                    if (confirmed) {
+                        window.location.href = `/livres/supprimer/${id}`;
+                    }
+                }
+            </script>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-    <script>
-        function confirmDelete(id) {
-            const confirmed = confirm(`Êtes-vous sûr de vouloir supprimer le livre avec l'ID ${id} ?`);
-            if (confirmed) {
-                window.location.href = `/livres/supprimer/${id}`;
-            }
-        }
-    </script>
 </body>
 </html>

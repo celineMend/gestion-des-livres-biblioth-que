@@ -11,7 +11,8 @@ class categorie extends Model
 
     protected $fillable = [
         'libelle',
-        'description'
+        'description',
+        'image_url'
     ];
 
     public function livres()

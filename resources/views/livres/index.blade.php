@@ -29,11 +29,10 @@
             display: flex;
             gap: 0.5rem;
         }
-
         .carousel-img {
-        height: 600px; /* Définir la hauteur désirée */
-        object-fit: cover; /* Assurez-vous que l'image couvre toute la zone sans se déformer */
-    }
+            height: 600px; /* Définir la hauteur désirée */
+            object-fit: cover; /* Assurez-vous que l'image couvre toute la zone sans se déformer */
+        }
     </style>
 </head>
 <body>
@@ -76,7 +75,7 @@
 <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-inner">
         <div class="carousel-item active">
-            <img src="https://i.pinimg.com/564x/14/15/6f/14156f7c0c0496e6391fce86c146efac.jpg" class="d-block w-100 carousel-img" alt="Slide 1">
+            <img src="https://images.radio-canada.ca/q_auto,w_1200/v1/ici-premiere/16x9/pluson-livre-generique.jpg" class="d-block w-100 carousel-img" alt="Slide 1">
             <div class="carousel-caption d-none d-md-block">
                 <h5>Premier Slide</h5>
                 <p>Description du premier slide.</p>
@@ -106,7 +105,6 @@
         <span class="visually-hidden">Next</span>
     </button>
 </div>
-
 
 <!-- Contenu principal -->
 <div class="container mt-4">
@@ -145,12 +143,12 @@
                                     <div class="btn-group">
                                         <a href="{{ route('livres.detail', $livre->id) }}" class="btn btn-primary btn-sm">Détails</a>
                                         <a href="{{ route('livres.modifier', $livre->id) }}" class="btn btn-warning btn-sm">Modifier</a>
+                                        <form action="{{ route('livres.supprimer', $livre->id) }}" method="POST" class="d-inline">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Êtes-vous sûr de vouloir supprimer ce livre ?')">Supprimer</button>
+                                        </form>
                                     </div>
-                                    <form action="{{ route('livres.supprimer', $livre->id) }}" method="POST" class="d-inline">
-                                        @csrf
-                                        @method('DELETE')
-                                        <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Êtes-vous sûr de vouloir supprimer ce livre ?')">Supprimer</button>
-                                    </form>
                                 </div>
                             </div>
                         </div>
@@ -159,43 +157,46 @@
             @endif
         </div>
     </div>
-
-     <!-- Section des catégories -->
-    <section class="categorie mt-5">
-        <h2 class="title" style="font-size: 22px; border-bottom: 2px solid blueviolet; padding-bottom: 5px;">Nos différentes catégories de propriétés</h2>
-        <div class="row row-cols-1 row-cols-md-3 g-4">
-            @foreach($categories as $categorie)
-                <div class="col">
-                    <div class="card text-bg-dark h-100">
-                        <img src="{{ $categorie->image_url }}https://img.freepik.com/photos-gratuite/arrangement-nature-morte-lightbox_23-2149198407.jpg?t=st=1717959444~exp=1717963044~hmac=633edc5a0bf27fe142998ccc3d451481fd4ae328af46a0a9d649db4b58c49206&w=360" class="card-img" alt="{{ $categorie->libelle }}">
-                        <div class="card-img-overlay">
-                            <h5 class="card-title">{{ $categorie->libelle }}</h5>
-                            <p class="card-text">{{ $categorie->description }}</p>
-                        </div>
-                    </div>
-                </div>
-            @endforeach
-        </div>
-        <a href="/categories" class="btn" style="background-color: blueviolet; color: white; margin-top: 10px;">Gérer les catégories</a>
-    </section>
 </div>
 
-<!-- Section des rayons -->
-<section id="rayons" class="rayon">
-    <h2 class="title" style="font-size: 22px; border-bottom: 2px solid blueviolet; padding-bottom: 5px;">Nos différents rayons</h2>
-    <div class="card-group">
-        @foreach($rayons as $rayon)
-        <div class="card text-bg-dark">
-            <img src="{{ $rayon->image_url }}" class="card-img" alt="{{ $rayon->libelle }}">
-            <div class="card-img-overlay">
-                <h5 class="card-title">{{ $rayon->libelle }}</h5>
-                <p class="card-text">{{ $rayon->description }}</p>
+<!-- Section des catégories -->
+<section class="categorie mt-5">
+    <h2 class="title" style="font-size: 22px; border-bottom: 2px solid rgb(43, 198, 226); padding-bottom: 5px;">Nos différentes catégories de propriétés</h2>
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+        @foreach($categories as $categorie)
+            <div class="col">
+                <div class="card text-bg-dark h-100">
+                    <img src="{{ $categorie->image_url }}https://i.pinimg.com/564x/8a/22/34/8a2234dba7910e8204884c2e624a3ecd.jpg" class="card-img" alt="{{ $categorie->libelle }}">
+                    <div class="card-img-overlay">
+                        <h5 class="card-title">{{ $categorie->libelle }}</h5>
+                        <p class="card-text">{{ $categorie->description }}</p>
+                    </div>
+                </div>
             </div>
-        </div>
+        @endforeach
+    </div>
+    <a href="/categories" class="btn" style="background-color: rgb(43, 189, 226); color: white; margin-top: 10px;">Gérer les catégories</a>
+</section>
+
+<!-- Section des rayons -->
+<section id="rayons" class="rayon mt-5">
+    <h2 class="title" style="font-size: 22px; border-bottom: 2px solid blueviolet; padding-bottom: 5px;">Nos différents rayons</h2>
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+        @foreach($rayons as $rayon)
+            <div class="col">
+                <div class="card text-bg-dark h-100">
+                    <img src="{{ $rayon->image_url }}https://i.pinimg.com/564x/97/43/d0/9743d0f7b26ae85d4d6c2bd39ae32a59.jpg" class="card-img" alt="{{ $rayon->libelle }}">
+                    <div class="card-img-overlay">
+                        <h5 class="card-title">{{ $rayon->libelle }}</h5>
+                        <p class="card-text">{{ $rayon->description }}</p>
+                    </div>
+                </div>
+            </div>
         @endforeach
     </div>
     <a href="/rayons" class="btn" style="background-color: blueviolet; color: white; margin-top: 10px;">Gérer les rayons</a>
 </section>
+
 
 <!-- Bootstrap JS -->
 {{-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min> --}}
